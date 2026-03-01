@@ -1,4 +1,4 @@
-# ECE 285 Homework 3: Generative Adversarial Network (GAN)
+# FastGAN Image Generation for Ukiyo-e Artworks
 
 A PyTorch implementation of **FastGAN** (Liu et al., 2021) trained on the Ukiyo-e dataset.
 
