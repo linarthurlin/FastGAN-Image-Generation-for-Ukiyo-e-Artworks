@@ -1,0 +1,35 @@
+﻿data:
+  data_dir: "./data"
+  num_workers: 8
+
+training:
+  # ---- Image / model ------------------------------------------------
+  image_size: 256       # Output resolution – FastGAN supports 64 / 128 / 256
+  z_dim: 256            # Latent noise dimension
+  nfc_base: 32          # Channel multiplier (nfc[sz] = min(512, nfc_base * 256//sz))
+
+  # ---- Training schedule --------------------------------------------
+  batch_size: 16         # Small batches work well for few-shot settings
+  num_epochs: 800       # Total training epochs
+
+  # ---- Optimiser (FastGAN recommendations) -------------------------
+  lr: 2.0e-4            # Learning rate for both G and D
+  betas: [0.5, 0.99]    # Adam (β1, β2)
+
+  # ---- FastGAN-specific --------------------------------------------
+  recon_lambda: 1.0     # Reconstruction loss weight for discriminator
+  diffaug_policy: "translation,cutout"  # DiffAugment policies ('' to disable, 'color,translation,cutout')
+
+  # ---- Utilities ---------------------------------------------------
+  use_amp: true
+  use_ema: true
+  ema_decay: 0.999
+  save_every: 10        # Save sample grid every N epochs
+  checkpoint_every: 50  # Save full checkpoint every N epochs
+
+outputs:
+  images_dir: "outputs/images"
+  # weights_path: "outputs/weights/generator.pth"
+  weights_path: "outputs/weights/generator_ema.pth"
+  log_dir: "outputs/logs"
+  eval_results: "outputs/eval_results.json"

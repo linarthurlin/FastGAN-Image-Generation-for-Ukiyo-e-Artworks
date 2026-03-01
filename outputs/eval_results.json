@@ -1,0 +1,5 @@
+{
+  "weights": "outputs/weights/generator_ema.pth",
+  "fid": 0.04542113795444891,
+  "is": 3.4018912115891142
+}

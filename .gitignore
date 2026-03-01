@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data & large outputs
+data/Ukiyo_e/
+outputs/images/fastgan/
+outputs/logs/fastgan/
+outputs/weights/
+
+# Documents
+*.pdf
